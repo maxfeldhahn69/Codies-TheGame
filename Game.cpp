@@ -17,7 +17,7 @@ void Game::run(){
 
 	int menu0 = 0;
 
-	cout << "TBD" << endl;
+	cout << "Codies: The Game" << endl;
 	cout << "By: Chase & Max" << endl;
 	cout << "What would you like to do?" << endl;
 	cout << "1.) New Game" << endl;
@@ -82,7 +82,6 @@ void Game::run(){
 		a.setLevel(1);
 	}
 
-
 	do{
 		cout << "Health: " << a.getHealth() << " | Stamina: " << a.getStamina() << " | Level: " << a.getLevel() << endl;
 		cout << "1.) Home" << endl;
@@ -92,6 +91,7 @@ void Game::run(){
 		temp = 0;
 		cin >> temp;
 		for (int i = 0;; i++){
+			
 			if (temp == 1){
 				cout << "HOME" << endl;
 				cout << "1.) Shop" << endl;
@@ -106,6 +106,9 @@ void Game::run(){
 					a.setHealth(a.getMaxHealth());
 					a.setStamina(a.getStamina());
 				}
+				if (temp == 3){
+					break;
+				}
 			}
 			if (temp == 2){
 				cout << "Where would you like to battle?" << endl;
@@ -114,8 +117,16 @@ void Game::run(){
 				cout << "3.) Desert (8 - 12)" << endl;
 				cout << "4.) Cave (12 - 15)" << endl;
 				cout << "5.) Castle (15 - 20)" << endl;
+				int location = 0;
+				cin >> location;
+				if (location == 1){
+					cout << "Welcome to the Training Level NOOB!" << endl;
+				}
+				if (location == 2){
+					cout << "Welcome to the Forest" << endl;
+				}
 			}
 		}
 
-	} while (temp != 3);
-}
+		} while (temp != 3);
+	}
