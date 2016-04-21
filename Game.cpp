@@ -5,6 +5,7 @@
 #include <string>
 #include "Stats.h"
 #include "Game.h"
+#include "Items.h"
 
 using namespace std;
 
@@ -91,25 +92,38 @@ void Game::run(){
 		temp = 0;
 		cin >> temp;
 		for (int i = 0;; i++){
-			
-			if (temp == 1){
-				cout << "HOME" << endl;
-				cout << "1.) Shop" << endl;
-				cout << "2.) Sleep" << endl;
-				cout << "3.) Exit" << endl;
-				temp = 0;
-				cin >> temp;
+			for (int i = 0;; i++){
 				if (temp == 1){
-
-				}
-				if (temp == 2){
-					a.setHealth(a.getMaxHealth());
-					a.setStamina(a.getStamina());
-				}
-				if (temp == 3){
-					break;
+					cout << "HOME" << endl;
+					cout << "1.) Shop" << endl;
+					cout << "2.) Sleep" << endl;
+					cout << "3.) Exit" << endl;
+					temp;
+					cin >> temp;
+					if (temp == 1){
+						cout << "What would you like to buy?" << endl;
+						cout << "1.) Swords" << endl;
+						cout << "2.) Armor" << endl;
+						cout << "3.) Exit" << endl;
+						cin >> temp;
+						if (temp == 1){
+						}
+						if (temp == 2){
+						}
+						if (temp == 3){
+							break;
+						}
+					}
+					if (temp == 2){
+						a.setHealth(a.getMaxHealth());
+						a.setStamina(a.getStamina());
+					}
+					if (temp == 3){
+						break;
+					}
 				}
 			}
+
 			if (temp == 2){
 				cout << "Where would you like to battle?" << endl;
 				cout << "1.) Training (1 - 5)" << endl;
