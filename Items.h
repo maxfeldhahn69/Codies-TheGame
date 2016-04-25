@@ -13,22 +13,35 @@ private:
 	string chain_armor;
 	string plate_armor;
 
-public: void setDaggerDmg(int dd){
+public: void setDagger(int dd){
 			dagger = dd;
+			dd = 5;
 }
-		void setRustyDmg(int rsd){
+		void setRusty(int rsd){
 			rusty_sword = rsd;
+			rsd = 10;
 		}
-		void setStraightDmg(int ssd){
+		void setStraight(int ssd){
 			straight_sword = ssd;
+			ssd = 15;
 		}
-		void setGreatDmg(int gsd){
+		void setGreat(int gsd){
 			great_sword = gsd;
+			gsd = 25;
 		}
-		void setStickDmg(int sd){
+		void setStick(int sd){
 			stick = sd;
+			sd = 999;
 		}
-		void setLeatherProtection(int lp){
-			leather_armor = lp;
+		void setLeather(int la){
+			leather_armor = la;
+			la = 10;
+		}
+		void setChain(int ca){
+			chain_armor = ca;
+			ca = 20;
+		}
+		int getDagger(int dd){
+			return dd;
 		}
 };

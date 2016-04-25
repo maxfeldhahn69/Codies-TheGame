@@ -4,6 +4,9 @@
 
 class Stats{
 public:
+	void setDamage(int d){
+		damage = d;
+	}
 	void setMaxHealth(int mh){
 		MaxHealth = mh;
 	}
@@ -18,6 +21,9 @@ public:
 	}
 	void setHealth(int h){
 		health = h;
+	}
+	int getDamage(){
+		return damage;
 	}
 	int getHealth(){
 		return health;
@@ -40,5 +46,5 @@ private:
 	int MaxHealth;
 	int MaxStamina;
 	int level;
-
+	int damage;
 };

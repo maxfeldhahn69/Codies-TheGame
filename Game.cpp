@@ -65,7 +65,7 @@ void Game::run(){
 		a.setMaxStamina(50);
 		a.setStamina(50);
 		a.setLevel(1);
-
+		a.setDamage(5);
 	}
 	if (temp == 2){
 		a.setMaxHealth(50);
@@ -73,7 +73,7 @@ void Game::run(){
 		a.setMaxStamina(100);
 		a.setStamina(100);
 		a.setLevel(1);
-
+		a.setDamage(10);
 	}
 	if (temp == 1010){
 		a.setMaxHealth(99999);
@@ -81,18 +81,19 @@ void Game::run(){
 		a.setMaxStamina(99999);
 		a.setStamina(99999);
 		a.setLevel(1);
+		a.setDamage(999);
 	}
 
 	do{
-		cout << "Health: " << a.getHealth() << " | Stamina: " << a.getStamina() << " | Level: " << a.getLevel() << endl;
+		cout << "Health: " << a.getHealth() << " | Stamina: " << a.getStamina() << " | Level: " << a.getLevel() << " | Damage: " << a.getDamage() << endl;
 		cout << "1.) Home" << endl;
 		cout << "2.) Battle" << endl;
 		cout << "3.) Exit" << endl;
 		cout << "4.) Save" << endl;
-		temp = 0;
+		int temp = 0;
 		cin >> temp;
 		for (int i = 0;; i++){
-			for (int i = 0;; i++){
+
 				if (temp == 1){
 					cout << "HOME" << endl;
 					cout << "1.) Shop" << endl;
@@ -102,7 +103,7 @@ void Game::run(){
 					cin >> temp;
 					if (temp == 1){
 						cout << "What would you like to buy?" << endl;
-						cout << "1.) Swords" << endl;
+						cout << "1.) Weapons" << endl;
 						cout << "2.) Armor" << endl;
 						cout << "3.) Exit" << endl;
 						cin >> temp;
@@ -122,7 +123,6 @@ void Game::run(){
 						break;
 					}
 				}
-			}
 
 			if (temp == 2){
 				cout << "Where would you like to battle?" << endl;
@@ -134,10 +134,21 @@ void Game::run(){
 				int location = 0;
 				cin >> location;
 				if (location == 1){
+					int training_attack;
 					cout << "Welcome to the Training Level NOOB!" << endl;
+					cout << "What would you like to do here?" << endl;
+					cout << "1.) Attack Dummy #1" << endl;
+					cout << "2.) Attack Dummy #2" << endl;
+					cout << "3.) Attack Dummy #3" << endl;
+					for (int i = 0;; i++){}
 				}
 				if (location == 2){
-					cout << "Welcome to the Forest" << endl;
+					if (a.getLevel() < 5){
+						cout << "Sorry, You cannot be here!" << endl;
+					}
+					else{
+						cout << "Welcome to the Forest!" << endl;
+					}
 				}
 			}
 		}
