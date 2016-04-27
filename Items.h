@@ -3,45 +3,46 @@
 #include <iostream>
 
 class Items{
-private: 
-	string dagger;
-	string rusty_sword;
-	string straight_sword;
-	string great_sword;
-	string stick;
-	string leather_armor;
-	string chain_armor;
-	string plate_armor;
+private:
+	string WeaponName;
+	string ArmorName;
+	int armor;
+	int WeaponDmg;
+	int schmeebs;
+	int purchase;
 
-public: void setDagger(int dd){
-			dagger = dd;
-			dd = 5;
-}
-		void setRusty(int rsd){
-			rusty_sword = rsd;
-			rsd = 10;
-		}
-		void setStraight(int ssd){
-			straight_sword = ssd;
-			ssd = 15;
-		}
-		void setGreat(int gsd){
-			great_sword = gsd;
-			gsd = 25;
-		}
-		void setStick(int sd){
-			stick = sd;
-			sd = 999;
-		}
-		void setLeather(int la){
-			leather_armor = la;
-			la = 10;
-		}
-		void setChain(int ca){
-			chain_armor = ca;
-			ca = 20;
-		}
-		int getDagger(int dd){
-			return dd;
-		}
+
+public:
+	string getWeaponName(){
+		return WeaponName;
+	}
+	void setWeaponName(string v){
+		WeaponName = v;
+	}
+	string getArmorName(){
+		return ArmorName;
+	}
+	void setArmorName(string v){
+		ArmorName = v;
+	}
+	void setWeaponDmg(int v){
+		WeaponDmg = v;
+	}
+	int getWeaponDmg(){
+		return WeaponDmg;
+	}
+	int getSchmeebs(){
+		return schmeebs;
+	}
+	void setSchmeebs(int sch){
+		schmeebs = sch;
+	}
+	void setPurchase(int v){
+		purchase = v;
+	}
+	int getPurchase(){
+		return purchase;
+	}
 };
+
+

@@ -134,13 +134,14 @@ void Game::run(){
 				int location = 0;
 				cin >> location;
 				if (location == 1){
-					int training_attack;
+					temp = 0;
 					cout << "Welcome to the Training Level NOOB!" << endl;
 					cout << "What would you like to do here?" << endl;
 					cout << "1.) Attack Dummy #1" << endl;
 					cout << "2.) Attack Dummy #2" << endl;
 					cout << "3.) Attack Dummy #3" << endl;
-					for (int i = 0;; i++){}
+					cin >> temp;
+
 				}
 				if (location == 2){
 					if (a.getLevel() < 5){
@@ -148,6 +149,22 @@ void Game::run(){
 					}
 					else{
 						cout << "Welcome to the Forest!" << endl;
+					}
+				}
+				if (location == 3){
+					if (a.getLevel() < 8){
+						cout << "Sorry, You cannot be here!" << endl;
+					}
+					else{
+						cout << "Welcome to the Desert!" << endl;
+					}
+				}
+				if (location == 4){
+					if (a.getLevel() < 12){
+						cout << "Sorry, You cannot be here!" << endl;
+					}
+					else{
+						cout << "Welcome to the Cave!" << endl;
 					}
 				}
 			}
