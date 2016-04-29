@@ -4,7 +4,7 @@
 
 class Stats{
 public:
-	void setDamage(int d){
+	int setDamage(int d){
 		damage = d;
 	}
 	void setMaxHealth(int mh){
