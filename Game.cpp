@@ -6,11 +6,13 @@
 #include "Stats.h"
 #include "Game.h"
 #include "Items.h"
+#include "Monster.h"
 
 using namespace std;
 
 void Game::run(){
 	Stats a;
+	Monster b;
 	int temp;
 	ifstream f;
 	ofstream of;
@@ -94,35 +96,35 @@ void Game::run(){
 		cin >> temp;
 		for (int i = 0;; i++){
 
+			if (temp == 1){
+				cout << "HOME" << endl;
+				cout << "1.) Shop" << endl;
+				cout << "2.) Sleep" << endl;
+				cout << "3.) Exit" << endl;
+				temp;
+				cin >> temp;
 				if (temp == 1){
-					cout << "HOME" << endl;
-					cout << "1.) Shop" << endl;
-					cout << "2.) Sleep" << endl;
+					cout << "What would you like to buy?" << endl;
+					cout << "1.) Weapons" << endl;
+					cout << "2.) Armor" << endl;
 					cout << "3.) Exit" << endl;
-					temp;
 					cin >> temp;
 					if (temp == 1){
-						cout << "What would you like to buy?" << endl;
-						cout << "1.) Weapons" << endl;
-						cout << "2.) Armor" << endl;
-						cout << "3.) Exit" << endl;
-						cin >> temp;
-						if (temp == 1){
-						}
-						if (temp == 2){
-						}
-						if (temp == 3){
-							break;
-						}
 					}
 					if (temp == 2){
-						a.setHealth(a.getMaxHealth());
-						a.setStamina(a.getStamina());
 					}
 					if (temp == 3){
 						break;
 					}
 				}
+				if (temp == 2){
+					a.setHealth(a.getMaxHealth());
+					a.setStamina(a.getStamina());
+				}
+				if (temp == 3){
+					break;
+				}
+			}
 
 			if (temp == 2){
 				cout << "Where would you like to battle?" << endl;
@@ -138,9 +140,14 @@ void Game::run(){
 					cout << "Welcome to the Training Level NOOB!" << endl;
 					cout << "What would you like to do here?" << endl;
 					cout << "1.) Attack Dummy #1" << endl;
-					cout << "2.) Attack Dummy #2" << endl;
-					cout << "3.) Attack Dummy #3" << endl;
+					cout << "2.) Exit " << endl;
 					cin >> temp;
+					b.setmonsterMaxHealth = 15;
+					if (temp = 1){
+						
+						b.getmonsterMaxHealth
+						
+					}
 
 				}
 				if (location == 2){
@@ -167,8 +174,15 @@ void Game::run(){
 						cout << "Welcome to the Cave!" << endl;
 					}
 				}
+				if (location == 5){
+					if (a.getLevel() < 15){
+						cout << "Sorry, You cannot be here!" << endl;
+					}
+					else{
+						cout << "Welcome to the Castle!" << endl;
+					}
+				}
 			}
 		}
-
 		} while (temp != 3);
 	}
