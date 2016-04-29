@@ -221,6 +221,12 @@ void Game::run(){
 					cout << "1.)Attack!" << endl;
 					cout << "2.)Look Around" << endl;
 					cout << "3.)Leave" << endl;
+					temp = 0;
+					cin >> temp;
+
+					if (temp = 3){
+						break;
+					}
 				case 3:
 					cout << "Welcome to the desert!" << endl;
 					cout << endl;
@@ -228,6 +234,12 @@ void Game::run(){
 					cout << "1.)Attack!" << endl;
 					cout << "2.)Look Around" << endl;
 					cout << "3.)Leave" << endl;
+					temp = 0;
+					cin >> temp;
+
+					if (temp = 3){
+						break;
+					}
 				case 4:
 					cout << "Welcome to the cave!" << endl;
 					cout << endl;
@@ -235,6 +247,12 @@ void Game::run(){
 					cout << "1.)Attack!" << endl;
 					cout << "2.)Look Around" << endl;
 					cout << "3.)Leave" << endl;
+					temp = 0;
+					cin >> temp;
+
+					if (temp = 3){
+						break;
+					}
 				case 5:
 					cout << "Welcome to the castle!" << endl;
 					cout << endl;
@@ -242,8 +260,15 @@ void Game::run(){
 					cout << "1.)Attack!" << endl;
 					cout << "2.)Look Around" << endl;
 					cout << "3.)Leave" << endl;
-				case 6:
-					break;
+					temp = 0;
+					cin >> temp;
+
+					if (temp = 3){
+						break;
+					}
+					if (location == 6){
+						break;
+					}
 				}
 			}
 
