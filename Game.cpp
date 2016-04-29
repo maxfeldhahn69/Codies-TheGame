@@ -135,14 +135,13 @@ void Game::run(){
 				cin >> location;
 				if (location == 1){
 					temp = 0;
-					int total = 50;
-					int dmg = 0;
 					cout << "Welcome to the Training Level NOOB!" << endl;
 					cout << "What would you like to do here?" << endl;
 					cout << "1.) Attack Dummy #1" << endl;
+					cout << "2.) Attack Dummy #2" << endl;
+					cout << "3.) Attack Dummy #3" << endl;
 					cin >> temp;
-					total - a.getDamage = total;
-					cout << "Dummy Health " << total << endl;;
+
 				}
 				if (location == 2){
 					if (a.getLevel() < 5){
@@ -168,15 +167,7 @@ void Game::run(){
 						cout << "Welcome to the Cave!" << endl;
 					}
 				}
-				if (location == 5){
-					if (a.getLevel() < 15){
-						cout << "Sorry, You cannot be here!" << endl;
-					}
-					else{
-						cout << "Welcome to the Castle!" << endl;
-					}
-				}
-				}
+			}
 		}
 
 		} while (temp != 3);
