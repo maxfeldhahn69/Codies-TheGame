@@ -205,18 +205,43 @@ void Game::run(){
 					cout << "Welcome to the training area!" << endl;
 					cout << endl;
 					cout << "What would you like to do here?" << endl;
+					cout << "1.)Attack!" << endl;
+					cout << "2.)Look Around" << endl;
+					cout << "3.)Leave" << endl;
+					temp = 0;
+					cin >> temp;
+
+					if (temp = 3){
+						break;
+					}
 				case 2:
 					cout << "Welcome to the forest!" << endl;
 					cout << endl;
+					cout << "What would you like to do here?" << endl;
+					cout << "1.)Attack!" << endl;
+					cout << "2.)Look Around" << endl;
+					cout << "3.)Leave" << endl;
 				case 3:
 					cout << "Welcome to the desert!" << endl;
 					cout << endl;
+					cout << "What would you like to do here?" << endl;
+					cout << "1.)Attack!" << endl;
+					cout << "2.)Look Around" << endl;
+					cout << "3.)Leave" << endl;
 				case 4:
 					cout << "Welcome to the cave!" << endl;
 					cout << endl;
+					cout << "What would you like to do here?" << endl;
+					cout << "1.)Attack!" << endl;
+					cout << "2.)Look Around" << endl;
+					cout << "3.)Leave" << endl;
 				case 5:
 					cout << "Welcome to the castle!" << endl;
 					cout << endl;
+					cout << "What would you like to do here?" << endl;
+					cout << "1.)Attack!" << endl;
+					cout << "2.)Look Around" << endl;
+					cout << "3.)Leave" << endl;
 				case 6:
 					break;
 				}
