@@ -210,9 +210,16 @@ void Game::run(){
 					cout << "3.)Leave" << endl;
 					temp = 0;
 					cin >> temp;
-
-					if (temp = 3){
-						break;
+					if (temp = 2){
+						if (b.getSchmeebs() > 30){
+							cout << "You get nothing!" << endl;
+							cout << endl;
+						}
+						else(b.setSchmeebs(b.getSchmeebs() + 1));
+							cout << "One Schmeeb added to your inventory!" << endl;
+						if (temp = 3){
+							break;
+						}
 					}
 				case 2:
 					cout << "Welcome to the forest!" << endl;
@@ -266,9 +273,10 @@ void Game::run(){
 					if (temp = 3){
 						break;
 					}
-					if (location == 6){
-						break;
+					
 					}
+				if (location == 6){
+					break;
 				}
 			}
 
