@@ -13,6 +13,7 @@ using namespace std;
 void Game::run(){
 	Stats a;
 	Items b;
+	Monster c;
 	int temp;
 	int menutemp;
 	int hometemp;
@@ -93,7 +94,7 @@ void Game::run(){
 
 	do{
 		cout << "Health: " << a.getHealth() << " | Stamina: " << a.getStamina() << " | Level: " << a.getLevel() << " | Schmeebs: " << b.getSchmeebs() << endl;
-		cout << "Weapon: " << b.getWeaponName() << endl;
+		cout << "Weapon: " << b.getWeaponName() << " | Damage: " << a.getDamage() << endl;
 		cout << endl;
 		cout << "1.) Home" << endl;
 		cout << "2.) Battle" << endl;
@@ -210,13 +211,19 @@ void Game::run(){
 					cout << "3.)Leave" << endl;
 					temp = 0;
 					cin >> temp;
+
+					if (temp = 1){
+						c.setmonsterHealth(20);
+						cout << "Dummy Health: " << c.getmonsterHealth() << endl;
+
+					}
 					if (temp = 2){
 						if (b.getSchmeebs() > 30){
 							cout << "You get nothing!" << endl;
 							cout << endl;
 						}
 						else(b.setSchmeebs(b.getSchmeebs() + 1));
-							cout << "One Schmeeb added to your inventory!" << endl;
+				
 						if (temp = 3){
 							break;
 						}
@@ -230,10 +237,17 @@ void Game::run(){
 					cout << "3.)Leave" << endl;
 					temp = 0;
 					cin >> temp;
-
-					if (temp = 3){
-						break;
+					if (temp = 2){
+						if (b.getSchmeebs() > 50){
+							cout << "You get nothing!" << endl;
+							cout << endl;
+						}
+						else(b.setSchmeebs(b.getSchmeebs() + 2));
+						cout << "One Schmeeb added to your inventory!" << endl;
 					}
+						if (temp = 3){
+							break;
+						}
 				case 3:
 					cout << "Welcome to the desert!" << endl;
 					cout << endl;
@@ -243,10 +257,17 @@ void Game::run(){
 					cout << "3.)Leave" << endl;
 					temp = 0;
 					cin >> temp;
-
-					if (temp = 3){
-						break;
+					if (temp = 2){
+						if (b.getSchmeebs() > 70){
+							cout << "You get nothing!" << endl;
+							cout << endl;
+						}
+						else(b.setSchmeebs(b.getSchmeebs() + 3));
+						cout << "One Schmeeb added to your inventory!" << endl;
 					}
+						if (temp = 3){
+							break;
+						}
 				case 4:
 					cout << "Welcome to the cave!" << endl;
 					cout << endl;
@@ -256,10 +277,17 @@ void Game::run(){
 					cout << "3.)Leave" << endl;
 					temp = 0;
 					cin >> temp;
-
-					if (temp = 3){
-						break;
+					if (temp = 2){
+						if (b.getSchmeebs() > 90){
+							cout << "You get nothing!" << endl;
+							cout << endl;
+						}
+						else(b.setSchmeebs(b.getSchmeebs() + 4));
+						cout << "One Schmeeb added to your inventory!" << endl;
 					}
+						if (temp = 3){
+							break;
+						}
 				case 5:
 					cout << "Welcome to the castle!" << endl;
 					cout << endl;
@@ -269,20 +297,25 @@ void Game::run(){
 					cout << "3.)Leave" << endl;
 					temp = 0;
 					cin >> temp;
+					if (temp = 2){
+						if (b.getSchmeebs() > 110){
+							cout << "You get nothing!" << endl;
+							cout << endl;
+						}
+						else(b.setSchmeebs(b.getSchmeebs() + 5));
+						cout << "One Schmeeb added to your inventory!" << endl;
+					}
+						if (temp = 3){
+							break;
+						}
 
-					if (temp = 3){
+					}
+					if (location == 6){
 						break;
 					}
-					
 					}
-				if (location == 6){
-					break;
+
+
+					}
+					} while (menutemp != 3);
 				}
-			}
-
-
-		}
-	} while (menutemp != 3);
-}
-
-
