@@ -214,9 +214,16 @@ void Game::run(){
 
 					if (temp = 1){
 						c.setmonsterHealth(20);
-						cout << "Dummy Health: " << c.getmonsterHealth() << endl;
-
-					}
+						c.setmonsterMaxHealth(20);
+						temp = 0;
+						do{
+							cin >> temp;
+							cout << "Dummy Health: " << c.getmonsterHealth() << endl;
+							c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
+							cout << "Dummy Health: " << c.getmonsterHealth() << endl;
+						
+						} while (c.getmonsterHealth() <= 0);
+						}
 					if (temp = 2){
 						if (b.getSchmeebs() > 30){
 							cout << "You get nothing!" << endl;
