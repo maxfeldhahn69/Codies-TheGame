@@ -208,7 +208,8 @@ void Game::run(){
 					cout << "What would you like to do here?" << endl;
 					cout << "1.)Attack!" << endl;
 					cout << "2.)Look Around" << endl;
-					cout << "3.)Leave" << endl;
+					cout << "3.)Attempt to fight the boss!" << endl;
+					cout << "4.)Leave" << endl;
 					temp = 0;
 					cin >> temp;
 
@@ -246,9 +247,17 @@ void Game::run(){
 							b.setSchmeebs(b.getSchmeebs() + 1);
 							cout << "ONE SCHMEEB ADDED TO YOUR INVENTORY!!!" << endl;
 						}
-							
-				
 						if (temp = 3){
+							char boss1;
+							cout << "Are you sure you want to fight the boss? y/n" << endl;
+							cin >> boss1;
+							cout << "Too bad! Fight him anyway!" << endl;
+							c.setmonsterHealth(0);
+							c.setmonsterHealth(200);
+							cout << "Master Dummy HP is " << c.getmonsterHealth() << endl;
+						}
+				
+						if (temp = 4){
 							break;
 						}
 					}
