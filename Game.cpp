@@ -96,6 +96,7 @@ void Game::run(){
 		cout << "Health: " << a.getHealth() << " | Stamina: " << a.getStamina() << " | Level: " << a.getLevel() << " | Schmeebs: " << b.getSchmeebs() << endl;
 		cout << "Weapon: " << b.getWeaponName() << " | Damage: " << a.getDamage() << endl;
 		cout << endl;
+		a.setDamage(a.getDamage() + b.getWeaponDmg());
 		cout << "1.) Home" << endl;
 		cout << "2.) Battle" << endl;
 		cout << "3.) Exit" << endl;
@@ -188,7 +189,6 @@ void Game::run(){
 
 			}
 
-			a.setDamage(b.getWeaponDmg() + a.getDamage());
 
 			if (menutemp == 2){
 				cout << "Where would you like to battle?" << endl;
@@ -216,20 +216,37 @@ void Game::run(){
 						c.setmonsterHealth(20);
 						c.setmonsterMaxHealth(20);
 						temp = 0;
+
 						do{
-							cin >> temp;
+							char choice;
 							cout << "Dummy Health: " << c.getmonsterHealth() << endl;
-							c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
-							cout << "Dummy Health: " << c.getmonsterHealth() << endl;
-						
-						} while (c.getmonsterHealth() <= 0);
+							cout << "Do you want to attack? y/n" << endl;
+							cin >> choice;
+							if (choice == 'n'){
+								break;
+							}
+							else{
+									c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
+
+								cout << "You did " << a.getDamage() << " damage." << endl;
+							}
+						} while (c.getmonsterHealth() >= 0);
+						cout << "Congrats! You killed a dummy!" << endl;
+						cout << "You got 2 Schmeebs as payment" << endl;
+						b.setSchmeebs(b.getSchmeebs() + 2);
+						break;
 						}
 					if (temp = 2){
 						if (b.getSchmeebs() > 30){
 							cout << "You get nothing!" << endl;
 							cout << endl;
+							break;
 						}
-						else(b.setSchmeebs(b.getSchmeebs() + 1));
+						else{
+							b.setSchmeebs(b.getSchmeebs() + 1);
+							cout << "ONE SCHMEEB ADDED TO YOUR INVENTORY!!!" << endl;
+						}
+							
 				
 						if (temp = 3){
 							break;
