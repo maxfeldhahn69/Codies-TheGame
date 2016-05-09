@@ -213,7 +213,7 @@ void Game::run(){
 					temp = 0;
 					cin >> temp;
 
-					if (temp = 1){
+					if (temp == 1){
 						c.setmonsterHealth(20);
 						c.setmonsterMaxHealth(20);
 						temp = 0;
@@ -237,30 +237,40 @@ void Game::run(){
 						b.setSchmeebs(b.getSchmeebs() + 2);
 						break;
 						}
-					if (temp = 2){
+					if (temp == 2){
 						if (b.getSchmeebs() > 30){
 							cout << "You get nothing!" << endl;
 							cout << endl;
 							break;
 						}
+
 						else{
 							b.setSchmeebs(b.getSchmeebs() + 1);
 							cout << "ONE SCHMEEB ADDED TO YOUR INVENTORY!!!" << endl;
-						}
-						if (temp = 3){
-							char boss1;
-							cout << "Are you sure you want to fight the boss? y/n" << endl;
-							cin >> boss1;
-							cout << "Too bad! Fight him anyway!" << endl;
-							c.setmonsterHealth(0);
-							c.setmonsterHealth(200);
-							cout << "Master Dummy HP is " << c.getmonsterHealth() << endl;
-						}
-				
-						if (temp = 4){
 							break;
 						}
 					}
+					if (temp == 3){
+						char boss1;
+						cout << "Are you sure you want to fight the boss? y/n" << endl;
+						cin >> boss1;
+						cout << "Too bad! Fight him anyway!" << endl;
+						c.setmonsterHealth(200);
+						do{
+							c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
+
+							cout << "Master Dummy HP is " << c.getmonsterHealth() << endl;
+
+						} while (c.getmonsterHealth() >= 0);
+						cout << "Congratz!! You have been rewarded with 50 Schmeebs, and advanced to level 5!" << endl;
+						b.setSchmeebs(b.getSchmeebs() + 50);
+						a.setLevel(5);
+
+					}
+						if (temp == 4){
+							break;
+						}
+					
 				case 2:
 					cout << "Welcome to the forest!" << endl;
 					cout << endl;
