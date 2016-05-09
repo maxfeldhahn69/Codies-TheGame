@@ -93,10 +93,12 @@ void Game::run(){
 	}
 
 	do{
+		if (b.getWeaponDmg()>0){
+			a.setDamage(a.getDamage() + b.getWeaponDmg());
+		}
 		cout << "Health: " << a.getHealth() << " | Stamina: " << a.getStamina() << " | Level: " << a.getLevel() << " | Schmeebs: " << b.getSchmeebs() << endl;
 		cout << "Weapon: " << b.getWeaponName() << " | Damage: " << a.getDamage() << endl;
 		cout << endl;
-		a.setDamage(a.getDamage() + b.getWeaponDmg());
 		cout << "1.) Home" << endl;
 		cout << "2.) Battle" << endl;
 		cout << "3.) Exit" << endl;
@@ -129,13 +131,13 @@ void Game::run(){
 						value = a.getLevel();
 						cout << "Items available for purchase: " << endl;
 						cout << "1.) Dagger" << endl; // +2
-						if (value > 5){
+						if (value >= 5){
 							cout << "2.) Rusty Sword" << endl; // +4
 						}
-						if (value > 10){
+						if (value >= 10){
 							cout << "3.) Straight Sword" << endl; // +6
 						}
-						if (value > 15){
+						if (value >= 15){
 							cout << "4.) Great Sword" << endl; // +8
 						}
 						if (value == 20){
@@ -231,7 +233,7 @@ void Game::run(){
 
 								cout << "You did " << a.getDamage() << " damage." << endl;
 							}
-						} while (c.getmonsterHealth() >= 0);
+						} while (c.getmonsterHealth() > 0);
 						cout << "Congrats! You killed a dummy!" << endl;
 						cout << "You got 2 Schmeebs as payment" << endl;
 						b.setSchmeebs(b.getSchmeebs() + 2);
@@ -254,18 +256,27 @@ void Game::run(){
 						char boss1;
 						cout << "Are you sure you want to fight the boss? y/n" << endl;
 						cin >> boss1;
-						cout << "Too bad! Fight him anyway!" << endl;
+						
 						c.setmonsterHealth(200);
 						do{
 							c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
 
 							cout << "Master Dummy HP is " << c.getmonsterHealth() << endl;
+							cout << "Attack? y/n" << endl;
+							char option;
+							cin >> option;
+							cout << "Too bad! Fight him anyway!" << endl;
 
-						} while (c.getmonsterHealth() >= 0);
+						} while (c.getmonsterHealth() > 0);
 						cout << "Congratz!! You have been rewarded with 50 Schmeebs, and advanced to level 5!" << endl;
 						b.setSchmeebs(b.getSchmeebs() + 50);
 						a.setLevel(5);
-
+						a.setHealth(a.getHealth() * a.getLevel());
+						a.setMaxHealth(a.getMaxHealth() * a.getLevel());
+						a.setStamina(a.getStamina() * a.getLevel());
+						a.setMaxStamina(a.getMaxStamina() * a.getLevel());
+						a.setDamage(a.getDamage()*a.getLevel());
+						
 					}
 						if (temp == 4){
 							break;
