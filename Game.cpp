@@ -291,6 +291,39 @@ void Game::run(){
 					cout << "3.)Leave" << endl;
 					temp = 0;
 					cin >> temp;
+					if (temp == 1){
+						c.setmonsterHealth(100);
+						c.setmonsterMaxHealth(100);
+						c.setmonsterDamage(20);
+						temp = 0;
+
+						do{
+							char choice;
+							cout << "Gnome Health: " << c.getmonsterHealth() << endl;
+							cout << "Gnome Damage: " << c.getmonsterDamage() << endl;
+							cout << "Do you want to attack? y/n" << endl;
+							cin >> choice;
+							if (choice == 'n'){
+								break;
+							}
+							else{
+							
+								c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
+								a.setHealth(a.getHealth() - c.getmonsterDamage());
+								cout << "You did " << a.getDamage() << " damage." << endl;
+							}
+						} while (c.getmonsterHealth() > 0||a.getHealth() > 0);
+						if (a.getHealth() <= 0){
+							cout << "You DIED!" << endl;
+							cout << "GAME OVER" << endl;
+							system("pause");
+							return;
+						}
+						cout << "Congrats! You killed a dwarf!" << endl;
+						cout << "You got 10 Schmeebs as payment" << endl;
+						b.setSchmeebs(b.getSchmeebs() + 10);
+						break;
+					}
 					if (temp = 2){
 						if (b.getSchmeebs() > 50){
 							cout << "You get nothing!" << endl;
