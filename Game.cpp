@@ -282,8 +282,11 @@ void Game::run(){
 							break;
 						}
 					
-				case 2:
-					cout << "Welcome to the forest!" << endl;
+				case 2:if (a.getLevel() < 5){
+						   cout << "Sorry, You cannot be here." << endl;
+						   break;
+				}
+					cout << "Welcome to the Forest!" << endl;
 					cout << endl;
 					cout << "What would you like to do here?" << endl;
 					cout << "1.)Attack!" << endl;
@@ -292,7 +295,7 @@ void Game::run(){
 					temp = 0;
 					cin >> temp;
 					if (temp == 1){
-						c.setmonsterHealth(100);
+						c.setmonsterHealth(200);
 						c.setmonsterMaxHealth(100);
 						c.setmonsterDamage(20);
 						temp = 0;
@@ -301,6 +304,8 @@ void Game::run(){
 							char choice;
 							cout << "Gnome Health: " << c.getmonsterHealth() << endl;
 							cout << "Gnome Damage: " << c.getmonsterDamage() << endl;
+							cout << "Your Health: " << a.getHealth() << endl;
+							cout << "Your Damage: " << a.getDamage() << endl;
 							cout << "Do you want to attack? y/n" << endl;
 							cin >> choice;
 							if (choice == 'n'){
@@ -311,14 +316,16 @@ void Game::run(){
 								c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
 								a.setHealth(a.getHealth() - c.getmonsterDamage());
 								cout << "You did " << a.getDamage() << " damage." << endl;
+								cout << "You have " << a.getHealth() << " health left." << endl;
+
+								if (a.getHealth() <= 0){
+									cout << "You DIED!" << endl;
+									cout << "GAME OVER" << endl;
+									system("pause");
+									return;
+								}
 							}
-						} while (c.getmonsterHealth() > 0||a.getHealth() > 0);
-						if (a.getHealth() <= 0){
-							cout << "You DIED!" << endl;
-							cout << "GAME OVER" << endl;
-							system("pause");
-							return;
-						}
+						} while (c.getmonsterHealth() > 0);
 						cout << "Congrats! You killed a dwarf!" << endl;
 						cout << "You got 10 Schmeebs as payment" << endl;
 						b.setSchmeebs(b.getSchmeebs() + 10);
@@ -335,7 +342,10 @@ void Game::run(){
 						if (temp = 3){
 							break;
 						}
-				case 3:
+				case 3:if (a.getLevel() < 8){
+						   cout << "Sorry, You cannot be here." << endl;
+						   break;
+				}
 					cout << "Welcome to the desert!" << endl;
 					cout << endl;
 					cout << "What would you like to do here?" << endl;
@@ -355,7 +365,10 @@ void Game::run(){
 						if (temp = 3){
 							break;
 						}
-				case 4:
+				case 4:if (a.getLevel() < 12){
+						   cout << "Sorry, You cannot be here." << endl;
+						   break;
+				}
 					cout << "Welcome to the cave!" << endl;
 					cout << endl;
 					cout << "What would you like to do here?" << endl;
@@ -375,7 +388,10 @@ void Game::run(){
 						if (temp = 3){
 							break;
 						}
-				case 5:
+				case 5:if (a.getLevel() < 15){
+						   cout << "Sorry, You cannot be here." << endl;
+							   break;
+				}
 					cout << "Welcome to the castle!" << endl;
 					cout << endl;
 					cout << "What would you like to do here?" << endl;
