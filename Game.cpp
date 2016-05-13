@@ -312,7 +312,7 @@ void Game::run(){
 							cout << "Your Damage: " << a.getDamage() << endl;
 							cout << "Do you want to attack? y/n" << endl;
 							cin >> choice;
-							if (choice == 'n'){
+							if (choice = 'n'){
 								break;
 							}
 							else{
@@ -352,26 +352,44 @@ void Game::run(){
 							cout << "Wimp" << endl;
 							break;
 						}
-						c.setmonsterHealth(2000);
-						c.setmonsterDamage(100);
-						do{
-							if (a.getHealth() <= 0){
-								cout << "You died..." << endl;
-								cout << "GAME OVER." << endl;
-							}
-							c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
-							a.setHealth(a.getHealth() - c.getmonsterDamage());
-							a.setStamina(a.getStamina() - 5);
-							if (a.getStamina() < 0){
-								cout << "You cannot attack!" << endl;
-								cout << "You MUST retreat!(-200HP)" << endl;
-								a.setHealth(a.getHealth() - 200);
-								if (a.getHealth() <= 0){
-									cout << "You died..." << endl;
-									cout << "GAME OVER." << endl;
+						else{
+
+							c.setmonsterHealth(2000);
+							c.setmonsterDamage(100);
+
+							do{
+								temp = 0;
+								cout << "1.) Attack" << endl;
+								cout << "2.) Retreat" << endl;
+								cin >> temp;
+								if (temp == 1){
+
+									if (a.getHealth() <= 0){
+										cout << "You died..." << endl;
+										cout << "GAME OVER." << endl;
+									}
+
+									c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
+									a.setHealth(a.getHealth() - c.getmonsterDamage());
+									a.setStamina(a.getStamina() - 5);
+
+									if (a.getStamina() < 0){
+										cout << "You cannot attack!" << endl;
+										cout << "You MUST retreat!(-200HP)" << endl;
+										a.setHealth(a.getHealth() - 200);
+										break;
+										if (a.getHealth() <= 0){
+											cout << "You died..." << endl;
+											cout << "GAME OVER." << endl;
+										}
+									}
 								}
-							}
-						} while (c.getmonsterHealth() > 0);
+								if (temp == 2){
+									break;
+								}
+
+							} while (c.getmonsterHealth() > 0);
+						}
 					}
 						if (temp = 4){
 							break;
