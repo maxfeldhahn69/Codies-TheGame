@@ -256,7 +256,10 @@ void Game::run(){
 						char boss1;
 						cout << "Are you sure you want to fight the boss? y/n" << endl;
 						cin >> boss1;
-						
+						if (a.getDamage() <= 6){
+							cout << "It is physically impossible for you to kill the boss with " << a.getDamage() << " damage." << endl;
+							break;
+						}
 						c.setmonsterHealth(200);
 						do{
 							c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
@@ -291,7 +294,8 @@ void Game::run(){
 					cout << "What would you like to do here?" << endl;
 					cout << "1.)Attack!" << endl;
 					cout << "2.)Look Around" << endl;
-					cout << "3.)Leave" << endl;
+					cout << "3.) Attempt to fight the boss!" << endl;
+					cout << "4.)Leave" << endl;
 					temp = 0;
 					cin >> temp;
 					if (temp == 1){
@@ -337,9 +341,39 @@ void Game::run(){
 							cout << endl;
 						}
 						else(b.setSchmeebs(b.getSchmeebs() + 2));
-						cout << "One Schmeeb added to your inventory!" << endl;
+						cout << "Two Schmeebs added to your inventory!" << endl;
 					}
-						if (temp = 3){
+					if (temp = 3){
+						char boss2;
+						cout << "The Dwarf King has appeared." << endl;
+						cout << "Would you like to fight him? y/n" << endl;
+						cin >> boss2;
+						if (boss2 = 'n'){
+							cout << "Wimp" << endl;
+							break;
+						}
+						c.setmonsterHealth(2000);
+						c.setmonsterDamage(100);
+						do{
+							if (a.getHealth() <= 0){
+								cout << "You died..." << endl;
+								cout << "GAME OVER." << endl;
+							}
+							c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
+							a.setHealth(a.getHealth() - c.getmonsterDamage());
+							a.setStamina(a.getStamina() - 5);
+							if (a.getStamina() < 0){
+								cout << "You cannot attack!" << endl;
+								cout << "You MUST retreat!(-200HP)" << endl;
+								a.setHealth(a.getHealth() - 200);
+								if (a.getHealth() <= 0){
+									cout << "You died..." << endl;
+									cout << "GAME OVER." << endl;
+								}
+							}
+						} while (c.getmonsterHealth() > 0);
+					}
+						if (temp = 4){
 							break;
 						}
 				case 3:if (a.getLevel() < 8){
