@@ -258,6 +258,7 @@ void Game::run(){
 						cin >> boss1;
 						if (a.getDamage() <= 6){
 							cout << "It is physically impossible for you to kill the boss with " << a.getDamage() << " damage." << endl;
+							cout << "Go buy something." << endl;
 							break;
 						}
 						c.setmonsterHealth(200);
@@ -400,6 +401,23 @@ void Game::run(){
 								}
 
 							} while (c.getmonsterHealth() > 0);
+							cout << "Congratz!! The Dwarf King is DEAD!" << endl;
+							cout << "You have been advanced to level 8!" << endl;
+
+							b.setSchmeebs(b.getSchmeebs() + 100);
+							if (a.getLevel() < 8){
+								a.setLevel(8);
+								a.setHealth(a.getHealth() * a.getLevel());
+								a.setMaxHealth(a.getMaxHealth() * a.getLevel());
+								a.setStamina(a.getStamina() * a.getLevel());
+								a.setMaxStamina(a.getMaxStamina() * a.getLevel());
+								a.setDamage(a.getDamage()*a.getLevel());
+							}
+							else{
+								cout << "You are already level 5 silly!" << endl;
+							}
+							break;
+							
 						}
 		
 						else{
@@ -442,7 +460,8 @@ void Game::run(){
 					cout << "What would you like to do here?" << endl;
 					cout << "1.)Attack!" << endl;
 					cout << "2.)Look Around" << endl;
-					cout << "3.)Leave" << endl;
+					cout << "3.)Attempt to fight the boss" << endl;
+					cout << "4.)Leave" << endl;
 					temp = 0;
 					cin >> temp;
 					if (temp = 2){
@@ -450,10 +469,12 @@ void Game::run(){
 							cout << "You get nothing!" << endl;
 							cout << endl;
 						}
-						else(b.setSchmeebs(b.getSchmeebs() + 4));
-						cout << "One Schmeeb added to your inventory!" << endl;
+						else{
+							(b.setSchmeebs(b.getSchmeebs() + 4));
+								cout << "Four Schmeebs added to your inventory!" << endl;
+						}
 					}
-						if (temp = 3){
+						if (temp = 4){
 							break;
 						}
 				case 5:if (a.getLevel() < 15){
