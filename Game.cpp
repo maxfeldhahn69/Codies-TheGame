@@ -17,51 +17,20 @@ void Game::run(){
 	int temp;
 	int menutemp;
 	int hometemp;
-	ifstream f;
-	ofstream of;
 
 
 	int menu0 = 0;
 
 	cout << "Codies: The Game" << endl;
 	cout << "By: Max" << endl;
-	cout << "What would you like to do?" << endl;
-	cout << "1.) New Game" << endl;
-	cout << "2.) Load Game" << endl;
-	cin >> menu0;
 
-	switch (menu0){
-	case 1:
-		int save;
-		cout << "Choose a save file" << endl;
-		cout << "Save 1" << endl;
-		cout << "Save 2" << endl;
-		cout << "Save 3" << endl;
-		cin >> save;
-
-		if (save == 1){
-			of.open("save1.txt", ios::out || ios::trunc);
-
-		}
-		if (save == 2){
-			of.open("save2.txt", ios::out || ios::trunc);
-		}
-		if (save == 3){
-			of.open("save3.txt", ios::out || ios::trunc);
-		}
-		break;
-	case 2:
-		string saveFile;
-		cout << "Choose your save file (saveX): ";
-		cin >> saveFile;
-		f.open(saveFile);
-		break;
-
-	}
 
 	cout << "Welcome... choose your class." << endl;
-	cout << "1.) Warrior: 100 HP 50 STA" << endl;
-	cout << "2.) Rogue: 50 HP 100 STA" << endl;
+	cout << "1.) Knight: 100 HP 50 STA 5 DMG" << endl;
+	cout << "2.) Dex Beast: 50 HP 100 STA 8 DMG" << endl;
+	cout << "3.) Steve from Minecraft: 75 HP 75 STA 7 DMG" << endl;
+	cout << "4.) Newt: 50 HP 50 STA 12 DMG " << endl;
+	cout << "Don't like the classes? Input cheatcodes instead!" << endl;
 	cout << endl;
 	cin >> temp;
 	if (temp == 1){
@@ -82,6 +51,45 @@ void Game::run(){
 		a.setDamage(8);
 		b.setSchmeebs(20);
 	}
+	if (temp == 3){
+		a.setMaxHealth(75);
+		a.setHealth(75);
+		a.setMaxStamina(75);
+		a.setStamina(75);
+		a.setLevel(1);
+		a.setDamage(7);
+		b.setSchmeebs(20);
+	}
+	if (temp == 69){
+		a.setMaxHealth(69);
+		a.setHealth(69);
+		a.setMaxStamina(69);
+		a.setStamina(69);
+		a.setLevel(1);
+		a.setDamage(69);
+		b.setSchmeebs(69);
+		cout << "Secret Troll Class!" << endl;
+	}
+	if (temp == 13){
+		a.setMaxHealth(25);
+		a.setHealth(25);
+		a.setMaxStamina(1000);
+		a.setStamina(1000);
+		a.setLevel(1);
+		a.setDamage(100);
+		b.setSchmeebs(20);
+		cout << "Secret Nightmare Class!" << endl;
+	}
+	if (temp == 666){
+		a.setMaxHealth(666);
+		a.setHealth(666);
+		a.setMaxStamina(666);
+		a.setStamina(666);
+		a.setLevel(1);
+		a.setDamage(666);
+		b.setSchmeebs(666);
+		cout << "Secret Herobrine Class!" << endl;
+	}
 	if (temp == 1010){
 		a.setMaxHealth(99999);
 		a.setHealth(99999);
@@ -90,6 +98,7 @@ void Game::run(){
 		a.setLevel(20);
 		a.setDamage(999);
 		b.setSchmeebs(999);
+		cout << "Secret Beta-Tester Class!" << endl;
 	}
 
 	do{
@@ -154,19 +163,19 @@ void Game::run(){
 							break;
 						case 2:
 							b.setWeaponName("Rusty Sword");
-							b.setWeaponDmg(4);
+							b.setWeaponDmg(10);
 							break;
 						case 3:
 							b.setWeaponName("Straight Sword");
-							b.setWeaponDmg(6);
+							b.setWeaponDmg(20);
 							break;
 						case 4:
 							b.setWeaponName("Great Sword");
-							b.setWeaponDmg(8);
+							b.setWeaponDmg(50);
 							break;
 						case 5:
 							b.setWeaponName("Stick");
-							b.setWeaponDmg(10);
+							b.setWeaponDmg(100);
 							break;
 						case 6:
 							break;
@@ -401,22 +410,24 @@ void Game::run(){
 								}
 
 							} while (c.getmonsterHealth() > 0);
-							cout << "Congratz!! The Dwarf King is DEAD!" << endl;
-							cout << "You have been advanced to level 8!" << endl;
+							if (c.getmonsterHealth() < 0){
+								cout << "Congratz!! The Dwarf King is DEAD!" << endl;
+								cout << "You have been advanced to level 8!" << endl;
 
-							b.setSchmeebs(b.getSchmeebs() + 100);
-							if (a.getLevel() < 8){
-								a.setLevel(8);
-								a.setHealth(a.getHealth() * a.getLevel());
-								a.setMaxHealth(a.getMaxHealth() * a.getLevel());
-								a.setStamina(a.getStamina() * a.getLevel());
-								a.setMaxStamina(a.getMaxStamina() * a.getLevel());
-								a.setDamage(a.getDamage()*a.getLevel());
+								b.setSchmeebs(b.getSchmeebs() + 100);
+								if (a.getLevel() < 8){
+									a.setLevel(8);
+									a.setHealth(a.getHealth() * a.getLevel());
+									a.setMaxHealth(a.getMaxHealth() * a.getLevel());
+									a.setStamina(a.getStamina() * a.getLevel());
+									a.setMaxStamina(a.getMaxStamina() * a.getLevel());
+									a.setDamage(a.getDamage()*a.getLevel());
+								}
+								else{
+									cout << "You are already level 8 silly!" << endl;
+								}
+								break;
 							}
-							else{
-								cout << "You are already level 5 silly!" << endl;
-							}
-							break;
 							
 						}
 		
