@@ -142,6 +142,10 @@ void Game::run(){
 				cout << "3.) Exit" << endl;
 				hometemp = 0;
 				cin >> hometemp;
+				if (b.getSchmeebs() < 0){
+					cout << "You have gone BANKRUPT!" << endl;
+					cout << "YOU LOSE!" << endl;
+				}
 				if (hometemp == 1){
 					cout << "What would you like to buy?" << endl;
 					cout << "1.) Weapons" << endl;
@@ -589,8 +593,22 @@ void Game::run(){
 						break;
 					}
 					}
-
+					if (menutemp = 3){
+						cout << "GOODBYE!!" << endl;
+						system("pause");
+						return;
+					}
 
 					}
+					if (menutemp = 3){
+						cout << "GOODBYE!!" << endl;
+						system("pause");
+						return;
+					}
 					} while (menutemp != 3);
+					if (menutemp = 3){
+						cout << "GOODBYE!!" << endl;
+						system("pause");
+						return;
+					}
 				}
