@@ -60,6 +60,15 @@ void Game::run(){
 		a.setDamage(7);
 		b.setSchmeebs(20);
 	}
+	if (temp == 4){
+		a.setMaxHealth(50);
+		a.setHealth(50);
+		a.setMaxStamina(50);
+		a.setStamina(50);
+		a.setLevel(1);
+		a.setDamage(12);
+		b.setSchmeebs(20);
+	}
 	if (temp == 69){
 		a.setMaxHealth(69);
 		a.setHealth(69);
@@ -91,27 +100,35 @@ void Game::run(){
 		cout << "Secret Herobrine Class!" << endl;
 	}
 	if (temp == 1010){
-		a.setMaxHealth(99999);
-		a.setHealth(99999);
-		a.setMaxStamina(99999);
-		a.setStamina(99999);
+		a.setMaxHealth(10000);
+		a.setHealth(10000);
+		a.setMaxStamina(100);
+		a.setStamina(100);
 		a.setLevel(20);
-		a.setDamage(999);
+		a.setDamage(15);
 		b.setSchmeebs(999);
 		cout << "Secret Beta-Tester Class!" << endl;
 	}
-
+	
 	do{
+		if (a.getLevel()<1){
+			cout << "THAT IS NOT A CLASS!" << endl;
+			cout << "YOU LOSE!!!!!!!!!" << endl;
+			system("pause");
+			return;
+		}
 		if (b.getWeaponDmg()>0){
 			a.setDamage(a.getDamage() + b.getWeaponDmg());
 		}
 		cout << "Health: " << a.getHealth() << " | Stamina: " << a.getStamina() << " | Level: " << a.getLevel() << " | Schmeebs: " << b.getSchmeebs() << endl;
-		cout << "Weapon: " << b.getWeaponName() << " | Damage: " << a.getDamage() << endl;
+		cout << "Weapon: " << b.getWeaponName() << " | Damage: " << a.getDamage() << " | Armor: " << b.getArmorName() << endl;
 		cout << endl;
+		cout << "Your goal is to cure the world of the Codies TM virus!" << endl;
+		cout << endl;
+		cout << "Where would you like to go?" << endl;
 		cout << "1.) Home" << endl;
 		cout << "2.) Battle" << endl;
 		cout << "3.) Exit" << endl;
-		cout << "4.) Save" << endl;
 		menutemp = 0;
 		cin >> menutemp;
 		for (int i = 0;; i++){
@@ -180,6 +197,59 @@ void Game::run(){
 						case 6:
 							break;
 						}
+					}
+					if (temp == 2){
+						int value;
+						int purchase;
+						value = a.getLevel();
+						cout << "Items available for purchase: " << endl;
+						cout << "1.) Sombrero" << endl; // +25
+						if (value >= 5){
+							cout << "2.) Chain Armor Set " << endl; // +50
+						}
+						if (value >= 10){
+							cout << "3.) Iron Armor Set" << endl; // +100
+						}
+						if (value >= 15){
+							cout << "4.) Plate Armor Set" << endl; // +200
+						}
+						if (value == 20){
+							cout << "5.) Dragon Armor Set" << endl; // +400
+						}
+						cout << "6.) Leave" << endl;
+
+						cin >> purchase;
+						b.setPurchase(purchase);
+						switch (b.getPurchase()){
+						case 1:
+							b.setArmorName("Sombrero");
+							a.setMaxHealth(a.getMaxHealth() + 25);
+							b.setSchmeebs(b.getSchmeebs() - 25);
+							break;
+						case 2:
+							b.setArmorName("Chain Armor Set");
+							a.setMaxHealth(a.getMaxHealth() + 50);
+							b.setSchmeebs(b.getSchmeebs() - 30);
+							break;
+						case 3:
+							b.setArmorName("Iron Armor Set");
+							a.setMaxHealth(a.getMaxHealth() + 100);
+							b.setSchmeebs(b.getSchmeebs() - 40);
+							break;
+						case 4:
+							b.setArmorName("Plate Armor Set");
+							a.setMaxHealth(a.getMaxHealth() + 200);
+							b.setSchmeebs(b.getSchmeebs() - 55);
+							break;
+						case 5:
+							b.setArmorName("Dragon Armor Set");
+							a.setMaxHealth(a.getMaxHealth() + 400);
+							b.setSchmeebs(b.getSchmeebs() - 65);
+							break;
+						case 6:
+							break;
+						}
+
 					}
 					// END SHOP
 
@@ -402,6 +472,8 @@ void Game::run(){
 										if (a.getHealth() <= 0){
 											cout << "You died..." << endl;
 											cout << "GAME OVER." << endl;
+											system("pause");
+											return;
 										}
 									}
 								}
