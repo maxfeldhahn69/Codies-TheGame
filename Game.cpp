@@ -125,6 +125,8 @@ void Game::run(){
 		cout << endl;
 		cout << "Your goal is to cure the world of the Codies TM virus!" << endl;
 		cout << endl;
+		cout << "Protip#1: If you go bankrupt, you lose!" << endl;
+		cout << "Protip#2: Make sure to sleep at the bed to regain health!" << endl;
 		cout << "Where would you like to go?" << endl;
 		cout << "1.) Home" << endl;
 		cout << "2.) Battle" << endl;
@@ -145,6 +147,8 @@ void Game::run(){
 				if (b.getSchmeebs() < 0){
 					cout << "You have gone BANKRUPT!" << endl;
 					cout << "YOU LOSE!" << endl;
+					system("pause");
+					return;
 				}
 				if (hometemp == 1){
 					cout << "What would you like to buy?" << endl;
@@ -160,18 +164,19 @@ void Game::run(){
 						int purchase;
 						value = a.getLevel();
 						cout << "Items available for purchase: " << endl;
-						cout << "1.) Dagger" << endl; // +2
+						cout << "Schmeebs: " << b.getSchmeebs() << endl;
+						cout << "1.) Dagger - Schmeebs : 15 " << endl; // +2
 						if (value >= 5){
-							cout << "2.) Rusty Sword" << endl; // +4
+							cout << "2.) Rusty Sword - Schmeebs : 25 " << endl; // +10
 						}
 						if (value >= 10){
-							cout << "3.) Straight Sword" << endl; // +6
+							cout << "3.) Semi-Rusty Sword - Schmeebs : 35 " << endl; // +20
 						}
 						if (value >= 15){
-							cout << "4.) Great Sword" << endl; // +8
+							cout << "4.) Great Sword - Schmeebs : 45 " << endl; // +50
 						}
 						if (value == 20){
-							cout << "5.) Stick" << endl; // +10
+							cout << "5.) Hotdog - Schmeebs : 100 " << endl; // +100
 						}
 						cout << "6.) Leave" << endl;
 
@@ -181,22 +186,27 @@ void Game::run(){
 						case 1:
 							b.setWeaponName("Dagger");
 							b.setWeaponDmg(2);
+							b.setSchmeebs(b.getSchmeebs() - 15);
 							break;
 						case 2:
 							b.setWeaponName("Rusty Sword");
 							b.setWeaponDmg(10);
+							b.setSchmeebs(b.getSchmeebs() - 25);
 							break;
 						case 3:
-							b.setWeaponName("Straight Sword");
+							b.setWeaponName("Semi-Rusty Sword");
 							b.setWeaponDmg(20);
+							b.setSchmeebs(b.getSchmeebs() - 35);
 							break;
 						case 4:
 							b.setWeaponName("Great Sword");
 							b.setWeaponDmg(50);
+							b.setSchmeebs(b.getSchmeebs() - 45);
 							break;
 						case 5:
-							b.setWeaponName("Stick");
+							b.setWeaponName("Hotdog");
 							b.setWeaponDmg(100);
+							b.setSchmeebs(b.getSchmeebs() - 100);
 							break;
 						case 6:
 							break;
@@ -207,18 +217,18 @@ void Game::run(){
 						int purchase;
 						value = a.getLevel();
 						cout << "Items available for purchase: " << endl;
-						cout << "1.) Sombrero" << endl; // +25
+						cout << "1.) Sombrero - Schmeebs : 25 " << endl; // +25
 						if (value >= 5){
-							cout << "2.) Chain Armor Set " << endl; // +50
+							cout << "2.) Chain Armor Set - Schmeebs : 50 " << endl; // +50
 						}
 						if (value >= 10){
-							cout << "3.) Iron Armor Set" << endl; // +100
+							cout << "3.) Iron Armor Set - Schmeebs : 100 " << endl; // +100
 						}
 						if (value >= 15){
-							cout << "4.) Plate Armor Set" << endl; // +200
+							cout << "4.) Plate Armor Set - Schmeebs : 200 " << endl; // +200
 						}
 						if (value == 20){
-							cout << "5.) Dragon Armor Set" << endl; // +400
+							cout << "5.) Dragon Armor Set - Schmeebs : 400 " << endl; // +400
 						}
 						cout << "6.) Leave" << endl;
 
@@ -228,26 +238,31 @@ void Game::run(){
 						case 1:
 							b.setArmorName("Sombrero");
 							a.setMaxHealth(a.getMaxHealth() + 25);
+							a.setHealth(a.getMaxHealth());
 							b.setSchmeebs(b.getSchmeebs() - 25);
 							break;
 						case 2:
 							b.setArmorName("Chain Armor Set");
 							a.setMaxHealth(a.getMaxHealth() + 50);
+							a.setHealth(a.getMaxHealth());
 							b.setSchmeebs(b.getSchmeebs() - 30);
 							break;
 						case 3:
 							b.setArmorName("Iron Armor Set");
 							a.setMaxHealth(a.getMaxHealth() + 100);
+							a.setHealth(a.getMaxHealth());
 							b.setSchmeebs(b.getSchmeebs() - 40);
 							break;
 						case 4:
 							b.setArmorName("Plate Armor Set");
 							a.setMaxHealth(a.getMaxHealth() + 200);
+							a.setHealth(a.getMaxHealth());
 							b.setSchmeebs(b.getSchmeebs() - 55);
 							break;
 						case 5:
 							b.setArmorName("Dragon Armor Set");
 							a.setMaxHealth(a.getMaxHealth() + 400);
+							a.setHealth(a.getMaxHealth());
 							b.setSchmeebs(b.getSchmeebs() - 65);
 							break;
 						case 6:
@@ -447,13 +462,14 @@ void Game::run(){
 						if (boss2 == 'y'){
 
 							c.setmonsterHealth(2000);
-							c.setmonsterDamage(100);
+							c.setmonsterDamage(25);
 
 							do{
 								temp = 0;
 								cout << "Player Health: " << a.getHealth() << endl;
 								cout << "Player Stamina: " << a.getStamina() << endl;
 								cout << "Dwarf King Health: " << c.getmonsterHealth() << endl;
+								cout << "Dwarf King Damage: " << c.getmonsterDamage() << endl;
 								cout << "1.) Attack" << endl;
 								cout << "2.) Retreat" << endl;
 								cin >> temp;
@@ -593,22 +609,16 @@ void Game::run(){
 						break;
 					}
 					}
-					if (menutemp = 3){
-						cout << "GOODBYE!!" << endl;
-						system("pause");
-						return;
+			
+					if (menutemp == 3){
+							cout << "GOODBYE!!" << endl;
+							system("pause");
+							return;
 					}
-
 					}
-					if (menutemp = 3){
-						cout << "GOODBYE!!" << endl;
-						system("pause");
-						return;
-					}
+					
 					} while (menutemp != 3);
-					if (menutemp = 3){
-						cout << "GOODBYE!!" << endl;
-						system("pause");
-						return;
-					}
+					
+						
+					
 				}
