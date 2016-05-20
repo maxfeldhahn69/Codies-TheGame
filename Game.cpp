@@ -127,7 +127,9 @@ void Game::run(){
 		cout << endl;
 		cout << "Protip#1: If you go bankrupt, you lose!" << endl;
 		cout << "Protip#2: Make sure to sleep at the bed to regain health!" << endl;
+		cout << endl;
 		cout << "Where would you like to go?" << endl;
+		cout << endl;
 		cout << "1.) Home" << endl;
 		cout << "2.) Battle" << endl;
 		cout << "3.) Exit" << endl;
@@ -456,13 +458,13 @@ void Game::run(){
 
 					if (temp == 3){
 						char boss2;
-						cout << "The Dwarf King has appeared." << endl;
+						cout << "The Sand King has appeared." << endl;
 						cout << "Would you like to fight him? y/n" << endl;
 						cin >> boss2;
 						if (boss2 == 'y'){
 
-							c.setmonsterHealth(2000);
-							c.setmonsterDamage(25);
+							c.setmonsterHealth(8000);
+							c.setmonsterDamage(100);
 
 							do{
 								temp = 0;
@@ -478,6 +480,7 @@ void Game::run(){
 									if (a.getHealth() <= 0){
 										cout << "You died..." << endl;
 										cout << "GAME OVER." << endl;
+
 									}
 
 									c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
@@ -540,18 +543,96 @@ void Game::run(){
 					cout << "What would you like to do here?" << endl;
 					cout << "1.)Attack!" << endl;
 					cout << "2.)Look Around" << endl;
-					cout << "3.)Leave" << endl;
+					cout << "3.)Attempt to fight the boss!" << endl;
+					cout << "4.)Leave" << endl;
 					temp = 0;
 					cin >> temp;
-					if (temp = 2){
+					if (temp == 2){
 						if (b.getSchmeebs() > 70){
 							cout << "You get nothing!" << endl;
 							cout << endl;
 						}
-						else(b.setSchmeebs(b.getSchmeebs() + 3));
-						cout << "One Schmeeb added to your inventory!" << endl;
+						else{
+							b.setSchmeebs(b.getSchmeebs() + 3);
+
+							cout << "Three Schmeebs added to your inventory!" << endl;
+						}
 					}
-						if (temp = 3){
+					if (temp == 3){
+						char boss2;
+						cout << "The Sand King has appeared." << endl;
+						cout << "Would you like to fight him? y/n" << endl;
+						cin >> boss2;
+						if (boss2 == 'y'){
+
+							c.setmonsterHealth(2000);
+							c.setmonsterDamage(25);
+
+							do{
+								temp = 0;
+								cout << "Player Health: " << a.getHealth() << endl;
+								cout << "Player Stamina: " << a.getStamina() << endl;
+								cout << "Sand King Health: " << c.getmonsterHealth() << endl;
+								cout << "Sand King Damage: " << c.getmonsterDamage() << endl;
+								cout << "1.) Attack" << endl;
+								cout << "2.) Retreat" << endl;
+								cin >> temp;
+								if (temp == 1){
+
+									if (a.getHealth() <= 0){
+										cout << "You died..." << endl;
+										cout << "GAME OVER." << endl;
+									}
+
+									c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
+									a.setHealth(a.getHealth() - c.getmonsterDamage());
+									a.setStamina(a.getStamina() - 5);
+
+									if (a.getStamina() < 0){
+										cout << "You cannot attack!" << endl;
+										cout << "You MUST retreat!(-200HP)" << endl;
+										a.setHealth(a.getHealth() - 200);
+										break;
+										if (a.getHealth() <= 0){
+											cout << "You died..." << endl;
+											cout << "GAME OVER." << endl;
+											system("pause");
+											return;
+										}
+									}
+								}
+								if (temp == 2){
+									break;
+								}
+
+							} while (c.getmonsterHealth() > 0);
+							if (c.getmonsterHealth() < 0){
+								cout << "Congratz!! The Sand King is DEAD!" << endl;
+								cout << "You have been advanced to level 8!" << endl;
+
+								b.setSchmeebs(b.getSchmeebs() + 200);
+								if (a.getLevel() < 12){
+									a.setLevel(12);
+									a.setHealth(a.getHealth() * a.getLevel());
+									a.setMaxHealth(a.getMaxHealth() * a.getLevel());
+									a.setStamina(a.getStamina() * a.getLevel());
+									a.setMaxStamina(a.getMaxStamina() * a.getLevel());
+									a.setDamage(a.getDamage()*a.getLevel());
+								}
+								else{
+									cout << "You are already level 12 silly!" << endl;
+								}
+								break;
+							}
+
+						}
+
+						else{
+							cout << "Wimp" << endl;
+							break;
+						}
+					}
+						if (temp == 4){
 							break;
 						}
 				case 4:if (a.getLevel() < 12){
