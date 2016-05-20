@@ -132,7 +132,7 @@ void Game::run(){
 		cout << endl;
 		cout << "1.) Home" << endl;
 		cout << "2.) Battle" << endl;
-		cout << "3.) Exit" << endl;
+		cout << "3.) Exit-EXIT GAME" << endl;
 		menutemp = 0;
 		cin >> menutemp;
 		for (int i = 0;; i++){
@@ -143,7 +143,7 @@ void Game::run(){
 				cout << "HOME" << endl;
 				cout << "1.) Shop" << endl;
 				cout << "2.) Sleep" << endl;
-				cout << "3.) Exit" << endl;
+				cout << "3.) Exit-Return to main menu" << endl;
 				hometemp = 0;
 				cin >> hometemp;
 				if (b.getSchmeebs() < 0){
@@ -156,7 +156,7 @@ void Game::run(){
 					cout << "What would you like to buy?" << endl;
 					cout << "1.) Weapons" << endl;
 					cout << "2.) Armor" << endl;
-					cout << "3.) Exit" << endl;
+					cout << "3.) Exit-Return to home menu" << endl;
 					temp = 0;
 					cin >> temp;
 
@@ -299,7 +299,7 @@ void Game::run(){
 				cout << "3.) Desert (8 - 12)" << endl;
 				cout << "4.) Cave (12 - 15)" << endl;
 				cout << "5.) Castle (15 - 20)" << endl;
-				cout << "6.) Exit" << endl;
+				cout << "6.) Exit-Return to main menu" << endl;
 				cout << endl;
 				int location = 0;
 				cin >> location;
@@ -412,13 +412,13 @@ void Game::run(){
 
 						do{
 							char choice;
-							cout << "Gnome Health: " << c.getmonsterHealth() << endl;
-							cout << "Gnome Damage: " << c.getmonsterDamage() << endl;
+							cout << "Dwarf Health: " << c.getmonsterHealth() << endl;
+							cout << "Dwarf Damage: " << c.getmonsterDamage() << endl;
 							cout << "Your Health: " << a.getHealth() << endl;
 							cout << "Your Damage: " << a.getDamage() << endl;
 							cout << "Do you want to attack? y/n" << endl;
 							cin >> choice;
-							if (choice = 'n'){
+							if (choice == 'n'){
 								break;
 							}
 							else{
@@ -463,8 +463,8 @@ void Game::run(){
 						cin >> boss2;
 						if (boss2 == 'y'){
 
-							c.setmonsterHealth(8000);
-							c.setmonsterDamage(100);
+							c.setmonsterHealth(1000);
+							c.setmonsterDamage(15);
 
 							do{
 								temp = 0;
