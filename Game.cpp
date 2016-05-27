@@ -21,7 +21,7 @@ void Game::run(){
 
 	int menu0 = 0;
 
-	cout << "Codies: The Game" << endl;
+	cout << "Codies 3: Chipwrecked" << endl;
 	cout << "By: Max" << endl;
 
 
@@ -311,7 +311,7 @@ void Game::run(){
 					cout << "1.)Attack!" << endl;
 					cout << "2.)Look Around" << endl;
 					cout << "3.)Attempt to fight the boss!" << endl;
-					cout << "4.)Leave" << endl;
+					cout << "4.)Exit-Return to location menu" << endl;
 					temp = 0;
 					cin >> temp;
 
@@ -401,7 +401,7 @@ void Game::run(){
 					cout << "1.)Attack!" << endl;
 					cout << "2.)Look Around" << endl;
 					cout << "3.)Attempt to fight the boss!" << endl;
-					cout << "4.)Leave" << endl;
+					cout << "4.)Exit-Return to location menu" << endl;
 					temp = 0;
 					cin >> temp;
 					if (temp == 1){
@@ -458,7 +458,7 @@ void Game::run(){
 
 					if (temp == 3){
 						char boss2;
-						cout << "The Sand King has appeared." << endl;
+						cout << "The Dwarf King has appeared." << endl;
 						cout << "Would you like to fight him? y/n" << endl;
 						cin >> boss2;
 						if (boss2 == 'y'){
@@ -477,12 +477,6 @@ void Game::run(){
 								cin >> temp;
 								if (temp == 1){
 
-									if (a.getHealth() <= 0){
-										cout << "You died..." << endl;
-										cout << "GAME OVER." << endl;
-
-									}
-
 									c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
 									a.setHealth(a.getHealth() - c.getmonsterDamage());
 									a.setStamina(a.getStamina() - 5);
@@ -492,13 +486,15 @@ void Game::run(){
 										cout << "You MUST retreat!(-200HP)" << endl;
 										a.setHealth(a.getHealth() - 200);
 										break;
+									}
 										if (a.getHealth() <= 0){
 											cout << "You died..." << endl;
 											cout << "GAME OVER." << endl;
 											system("pause");
 											return;
 										}
-									}
+										
+									
 								}
 								if (temp == 2){
 									break;
@@ -544,9 +540,12 @@ void Game::run(){
 					cout << "1.)Attack!" << endl;
 					cout << "2.)Look Around" << endl;
 					cout << "3.)Attempt to fight the boss!" << endl;
-					cout << "4.)Leave" << endl;
+					cout << "4.)Exit-Return to location menu" << endl;
 					temp = 0;
 					cin >> temp;
+					if (temp == 1){
+
+					}
 					if (temp == 2){
 						if (b.getSchmeebs() > 70){
 							cout << "You get nothing!" << endl;
@@ -579,10 +578,7 @@ void Game::run(){
 								cin >> temp;
 								if (temp == 1){
 
-									if (a.getHealth() <= 0){
-										cout << "You died..." << endl;
-										cout << "GAME OVER." << endl;
-									}
+								
 
 									c.setmonsterHealth(c.getmonsterHealth() - a.getDamage());
 									a.setHealth(a.getHealth() - c.getmonsterDamage());
@@ -593,13 +589,14 @@ void Game::run(){
 										cout << "You MUST retreat!(-200HP)" << endl;
 										a.setHealth(a.getHealth() - 200);
 										break;
+									}
 										if (a.getHealth() <= 0){
 											cout << "You died..." << endl;
 											cout << "GAME OVER." << endl;
 											system("pause");
 											return;
 										}
-									}
+									
 								}
 								if (temp == 2){
 									break;
@@ -645,7 +642,7 @@ void Game::run(){
 					cout << "1.)Attack!" << endl;
 					cout << "2.)Look Around" << endl;
 					cout << "3.)Attempt to fight the boss" << endl;
-					cout << "4.)Leave" << endl;
+					cout << "4.)Exit-Return to location menu" << endl;
 					temp = 0;
 					cin >> temp;
 					if (temp = 2){
@@ -670,7 +667,7 @@ void Game::run(){
 					cout << "What would you like to do here?" << endl;
 					cout << "1.)Attack!" << endl;
 					cout << "2.)Look Around" << endl;
-					cout << "3.)Leave" << endl;
+					cout << "3.)Exit-Return to location menu" << endl;
 					temp = 0;
 					cin >> temp;
 					if (temp = 2){
@@ -681,7 +678,7 @@ void Game::run(){
 						else(b.setSchmeebs(b.getSchmeebs() + 5));
 						cout << "One Schmeeb added to your inventory!" << endl;
 					}
-						if (temp = 3){
+						if (temp == 3){
 							break;
 						}
 
